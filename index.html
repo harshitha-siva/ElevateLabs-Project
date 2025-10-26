@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Password Strength Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">🔍 Password Strength Analysis</h1>
+            <p class="hero-subtitle">Analyze your password strength and security vulnerabilities</p>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Password Input Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2>🔍 Password Analysis</h2>
+                <p>Enter your password to analyze its strength and security</p>
+            </div>
+            
+            <div class="analysis-card">
+                <div class="password-input-group">
+                    <input type="password" id="passwordInput" placeholder="Type your password here...">
+                    <button id="toggleVisibility" class="btn btn-small">👁</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Options Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2>🔧 Analysis Options</h2>
+                <p>Choose additional security checks</p>
+            </div>
+            
+            <div class="options-card">
+                <div class="options-grid">
+                    <button id="generatePersonalWordlistBtn" class="btn btn-primary">👤 Generate Personal Info Wordlist</button>
+                    <button id="toggleCommonWordlistBtn" class="btn btn-secondary">📋 Check Against Common Weak Passwords</button>
+                </div>
+                
+                <div id="personalInfoForm" class="personal-form" style="display: none;">
+                    <h4>Enter Personal Information</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="John Doe">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="nickname">Nickname</label>
+                            <input type="text" id="nickname" placeholder="Johnny">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="birthDate">Date of Birth</label>
+                            <input type="date" id="birthDate">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="petName">Pet Name</label>
+                            <input type="text" id="petName" placeholder="Buddy">
+                        </div>
+                    </div>
+                    
+                    <button id="savePersonalInfo" class="btn btn-success">💾 Save Personal Info</button>
+                </div>
+                
+                <div id="wordlistDisplay" class="wordlist-display" style="display: none;">
+                    <h4>Common Weak Passwords</h4>
+                    <div id="wordlistContent"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Results Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2>📊 Analysis Results</h2>
+                <p>Detailed password strength analysis</p>
+            </div>
+            
+            <div class="results-card">
+                <div id="scoreDisplay" class="score-display" style="display: none;">
+                    <div class="score-circle">
+                        <span id="scoreValue">0</span>
+                        <span class="score-label">/100</span>
+                    </div>
+                    <h3>Password Strength Score</h3>
+                </div>
+                
+                <div id="crackTimeDisplay" class="crack-time-display" style="display: none;">
+                    <h4>⏱️ Time to Crack</h4>
+                    <p id="crackTimeText">Calculating...</p>
+                </div>
+                
+                <div id="weakAspectsDisplay" class="weak-aspects-display" style="display: none;">
+                    <h4>⚠️ Weak Aspects</h4>
+                    <ul id="weakAspectsList"></ul>
+                </div>
+                
+                <div id="improvementsDisplay" class="improvements-display" style="display: none;">
+                    <h4>💡 Suggested Improvements</h4>
+                    <ul id="improvementsList"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis History Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2>📋 Analysis History</h2>
+                <p>View your previous password analyses</p>
+            </div>
+            
+            <div class="history-card">
+                <div id="historyList" class="history-list">
+                    <p class="no-history">No analyses yet. Check a password to see history!</p>
+                </div>
+                
+                <button id="clearHistory" class="btn btn-danger" style="display: none;">🗑️ Clear History</button>
+            </div>
+        </div>
+
+        <!-- Security Tips Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2>💡 Security Tips</h2>
+                <p>Best practices for creating secure passwords</p>
+            </div>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">🔒</div>
+                    <h4>Avoid Personal Info</h4>
+                    <p>Never use your name, birthdate, or pet names in passwords.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🎲</div>
+                    <h4>Use Random Characters</h4>
+                    <p>Mix uppercase, lowercase, numbers, and symbols for maximum security.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">📏</div>
+                    <h4>Make It Long</h4>
+                    <p>Use at least 12 characters. Longer passwords are exponentially harder to crack.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
